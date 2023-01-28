@@ -1,11 +1,14 @@
 import React from 'react'
 import { useState , useEffect } from 'react'
 import {MdArrowDropDown} from 'react-icons/md'
+import { TiDelete } from 'react-icons/ti';
+import useCategoriesStore from '../store/Categories';
 import useSettingsStore from '../store/Settings';
 
 
 const OptionsPage = () => {
   const settings = useSettingsStore();
+  const cattegoriesData = useCategoriesStore();
   const [theme,setTheme] = useState(settings.theme); 
   const [currency,setCurrency] = useState(settings.currency) // 0 $ , 1 € , 2 £ , 3 ₪ 
   const [currnecyListOpen,setCurrencyListOpen] = useState(false);
@@ -34,8 +37,11 @@ const OptionsPage = () => {
 
   }
 
-
-
+const removeCategoryHandler = category => {
+  const confirmDelete = window.confirm(`Remove category '${category}' ? `);
+  if (confirmDelete) cattegoriesData.removeCategory(category);
+}
+const categoriesMapped = cattegoriesData.categories.map((cat,index) => <li key={index} className='flex gap-2 justify-between odd:bg-gray-800 odd:bg-opacity-20 even:bg-gray-400 even:bg-opacity-20 items-center text-xl'> <p>{cat}</p> <TiDelete onClick={()=>{removeCategoryHandler(cat)}} className='cursor-pointer text-3xl text-red-500'/> </li>)
  
 
   return (
@@ -61,7 +67,7 @@ const OptionsPage = () => {
       <MdArrowDropDown onClick={toggleCurrencyList} className={`${currnecyListOpen ? 'rotate-180' : 'rotate-0'} transition-all duration-500`}/>
         </section>
       {currnecyListOpen &&
-       <ul className='flex bg-amber-300 dark:bg-gray-800 z-10  overflow-y-auto max-h-36 flex-col absolute top-full left-1/2 -translate-x-1/2 gap-1 translate-y-1 w-full'>
+       <ul className='flex bg-amber-300 group dark:bg-gray-800 z-10  overflow-y-auto max-h-36 flex-col absolute top-full left-1/2 -translate-x-1/2 gap-1 translate-y-1 w-full'>
         {currnecyMapped}
        </ul>}
 
@@ -79,6 +85,13 @@ const OptionsPage = () => {
     <section className='flex justify-between'>
       <p>Monthly Day Charge: <span className='text-sm opacity-50'>for monthly basis actions</span></p>
       <input onChange={updateMonthlyDay} className='dark:bg-white text-center dark:bg-opacity-10 w-12 bg-gray-700 bg-opacity-30 rounded-md' type='number' min={1} max={31} value={monthlyDay}></input>
+    </section>
+
+    <section className='flex flex-col gap-2'>
+      <p>Categories :</p>
+      <ul className='flex flex-col max-h-32 overflow-auto'>
+        {categoriesMapped}
+      </ul>
     </section>
 
       {isDone && <p className='text-green-500 absolute left-1/2 bottom-20 w-max  -translate-x-1/2'>Settings saved successfully !</p>}

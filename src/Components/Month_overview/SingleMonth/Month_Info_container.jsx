@@ -29,7 +29,7 @@ const Month_Info_container = props => {
     <ul  ref={listRef}
     className='relative snap-mandatory overflow-y-hidden scroll-smooth snap-x overflow-x-auto grid grid-cols-[100vw,100vw]
        '>
-   <Month_Overview currency={props.currency} budget={props.budget} datePath={props.datePath} deleteAction={props.deleteAction} actions={currentMonthActions}/>
+   <Month_Overview isActiveMonth={props.isActiveMonth} currency={props.currency} budget={props.budget} datePath={props.datePath} deleteAction={props.deleteAction} actions={currentMonthActions}/>
    <Month_Graph currency={props.currency} page={currentPage} actions={currentMonthActions}/>
    </ul>
 

@@ -20,14 +20,25 @@ if (!initialObj){
     const settings = JSON.parse(localStorage.getItem('settings'));
     if (settings){
       const theme = settings.theme;
-      if (theme === 'Dark') if(!document.body.classList.contains('dark')) document.body.classList.add('dark');
-      if (theme==='Light') if(document.body.classList.contains('dark'))document.body.classList.remove('dark');
+      
+      if (theme === 'Dark')
+      {
+        document.body.style.backgroundColor='#1e293b';
+         if(!document.body.classList.contains('dark')) document.body.classList.add('dark');
+        }
+        if (theme==='Light'){
+          document.body.style.backgroundColor='#fef3c7'
+        if(document.body.classList.contains('dark'))document.body.classList.remove('dark');
+      }
+        
      
       if(theme==='System') {
         const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
       if (darkThemeMq.matches) {
+        document.body.style.backgroundColor='#1e293b';
         if(!document.body.classList.contains('dark')) document.body.classList.add('dark');
       } else {
+        document.body.style.backgroundColor='#fef3c7'
         if(document.body.classList.contains('dark'))document.body.classList.remove('dark');
       }
         }

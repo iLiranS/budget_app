@@ -1,6 +1,6 @@
 import { create } from "zustand";
 const useCategoriesStore = create((set)=>({
-    categories:['food','salary','bills','stocks','clothing','groceries','rent','car','medical','longasscateogrywtfdddddddd'],
+    categories:['food','salary','bills','stocks','clothing','groceries','rent','car','medical'],
 
     addCategory:(category) => set((state)=>{
         const cate = category.toLowerCase();

@@ -3,9 +3,11 @@ import TopNav from '../../../Layout/TopNav';
 import useDataStore from '../../../store/Data'
 import { useNavigate } from 'react-router-dom';
 import MonthHistoryGraph from './MonthHistoryGraph';
+import useSettingsStore from '../../../store/Settings';
 
 const MonthsHistory = () => {
     const data = useDataStore((state)=>state.data);
+    const currency = useSettingsStore((state)=>state.currency);
     const navigate = useNavigate();
     const navigateToMonth = date =>{
       navigate(`/month/${date}` , {replace:true});
@@ -21,8 +23,8 @@ const MonthsHistory = () => {
         bg-white bg-opacity-10 border-2 border-white border-opacity-50 max-w-[500px] rounded-md cursor-pointer hover:scale-[1.02] transition-all'>
       <p className='uppercase tracking-wider'>{month.date}</p>
       <section className='flex items-center gap-2'>
-        <p className='text-green-500 border-r-2 border-opacity-30 pr-2 border-white '>{month.income}$</p>
-        <p className='text-red-500'>{month.expense}$</p>
+        <p className='text-green-500 border-r-2 border-opacity-30 pr-2 border-white '>{currency}{month.income}</p>
+        <p className='text-red-500'>{currency}{month.expense}</p>
       </section>
       </li>
     )

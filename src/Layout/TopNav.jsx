@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import {BsCalendarMonth} from 'react-icons/bs'
 import {AiOutlineMenu,AiOutlineCompass} from 'react-icons/ai'
-import {VscSettings} from 'react-icons/vsc'
 import {FiUser} from 'react-icons/fi'
 import { NavLink } from 'react-router-dom'
 import {FaQuestionCircle} from 'react-icons/fa'

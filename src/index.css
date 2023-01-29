@@ -16,7 +16,7 @@
     @apply top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
   }
   .sideItem{
-    @apply flex gap-2 rounded-lg hover:bg-white hover:bg-opacity-30 p-2 items-center cursor-pointer text-white
+    @apply flex flex-col text-center gap-2 rounded-lg hover:bg-white hover:bg-opacity-30 p-2 items-center cursor-pointer text-white
   }
   .categoryListItem{
     @apply flex  p-2 bg-white bg-opacity-10  text-sm cursor-pointer min-h-[35px] hover:bg-opacity-20 max-w-full text-ellipsis overflow-hidden whitespace-nowrap;

@@ -96,7 +96,7 @@ return (
           <div style={{backgroundColor:colorsArray[index]}} className={`w-4 h-4  place-self-center  rounded-full`}> </div>
           <p className='overflow-hidden'>{category.name}</p>
           <p className='overflow-hidden'>{props.currency}{category.value}</p>
-          <p className='overflow-hidden'>{Math.round(category.value/totalVal * 100)}%</p>
+          <p className='overflow-hidden'>{Math.floor(category.value/totalVal * 100)}%</p>
 
         </li>)}
       </ul>

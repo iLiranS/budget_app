@@ -52,8 +52,9 @@ function App() {
 
   useEffect(()=>{
   // initial db sync 
+  const dataDatesMapped = data.map(item => item.date);
   if(data){
-    if (data.length ===0) addCurrentMonth();
+    if (data.length ===0 || !dataDatesMapped.includes(currentPath)) addCurrentMonth();
    if(data.length >0)syncData(data);
   } 
   },[data])
@@ -64,7 +65,7 @@ function App() {
     navi('/options' , {replace:true});
   }
  
-
+  
  
 
   

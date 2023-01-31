@@ -18,7 +18,6 @@ const updateDB = async(date,actions) =>{
 
 
 
-
 const useDataStore = create((set)=>({
     // structure : data : [ {date : 'monthYear' , actions : [...]} , { date : 'monthYear' , actions [...]}]
     // action has : category , day(1-31) , description , type(expense/income) , amount , isMonthly .

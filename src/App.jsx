@@ -52,9 +52,14 @@ function App() {
 
   useEffect(()=>{
   // initial db sync 
-  const dataDatesMapped = data.map(item => item.date);
   if(data){
-    if (data.length ===0 || !dataDatesMapped.includes(currentPath)) addCurrentMonth();
+  let dataDatesMapped = data.map(item => item.date);
+   if (!dataDatesMapped.includes(currentPath)) 
+    {
+    console.log('wtf man')
+    addCurrentMonth();
+    }
+
    if(data.length >0)syncData(data);
   } 
   },[data])

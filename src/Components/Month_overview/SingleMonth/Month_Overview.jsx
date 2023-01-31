@@ -86,7 +86,7 @@ const Month_Overview = props => {
         })}
         value={props.isActiveMonth ? expenseOutOfTotal : 100}>
           <h3 className='text-5xl text-green-500 hover:text-5xl transition-all'>{props.currency}{props.isActiveMonth ? leftToSpend : totalExpenses} </h3>
-          <p className='opacity-70 text-s mt-2'>Spare to spend</p>
+          <p className='opacity-70 text-s mt-2'>{props.isActiveMonth ? 'Spare to spend' : `Expenses of ${props.datePath}`}</p>
         </CircularProgressbarWithChildren>
            </div>
 

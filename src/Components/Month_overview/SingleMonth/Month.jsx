@@ -53,14 +53,14 @@ const Month = props => {
 
     {!isActiveMonth &&
     <Link to='/history' className='absolute cursor-pointer z-10 top-6 right-6 text-center justify-center  items-center'>
-    <p className='uppercase'>{currentMonth} {currentYear}</p> 
+    <p className='uppercase tracking-wider'>{date}</p> 
     <section className='flex items-center gap-2'>
     <p className='text-violet-400'>History</p>
     <BsArrowReturnLeft/>
     </section>
     </Link>
     }
-        <Month_Info_container currency={settings.currency} budget={settings.budget} datePath={props.datePath} isActiveMonth={isActiveMonth} deleteAction={deleteAction} currentMonthActions={currentMonthActions}/>
+        <Month_Info_container currency={settings.currency} budget={settings.budget} datePath={date} isActiveMonth={isActiveMonth} deleteAction={deleteAction} currentMonthActions={currentMonthActions}/>
     </div>
   )
 }

@@ -18,7 +18,7 @@ const MonthsHistory = () => {
       const monthIncomes = item.actions.filter(action=>action.type==='income').reduce((all,curr)=>all+curr.amount,0);
       return({date:item.date,income:monthIncomes,expense:monthExpenses});
     })
-    const resultData = fixedData.map((month,index) => 
+    const resultData = fixedData.reverse().map((month,index) => 
       <li onClick={()=>{navigateToMonth(month.date)}} key={index} className='flex relative h-12 items-center p-3 w-full justify-between
         bg-white bg-opacity-10 border-2 border-white border-opacity-50 max-w-[500px] rounded-md cursor-pointer hover:scale-[1.02] transition-all'>
       <p className='uppercase tracking-wider'>{month.date}</p>

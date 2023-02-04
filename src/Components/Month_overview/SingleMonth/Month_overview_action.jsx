@@ -41,8 +41,8 @@ const Month_overview_action = props => {
         const EditObj = {isExpense:type==='expense',isMonthly,amount,category,date,desc}
 
   return (
-    <li  onClick={openFocus} className={`p-3 relative cursor-pointer flex items-center justify-between rounded-md border-2 border-opacity-50 bg-opacity-20 dark:bg-opacity-10 ${ type==='income' ? 'border-green-500 bg-green-500' : 'border-red-500 bg-red-500'}
-    hover:scale-[1.02] transition-all cursor-pointe`}>
+    <li  onClick={openFocus} className={`p-3 relative cursor-pointer flex items-center justify-between rounded-md dark:even:bg-gray-600 dark:odd:bg-gray-700
+       even:bg-zinc-500 odd:bg-zinc-600 odd:bg-opacity-10 even:bg-opacity-30`}>
        <section className='flex  w-auto gap-4'>
         <p className=' w-8 relative after:absolute after:h-6 after:top-1/2 after:-translate-y-1/2 after:w-[1px] after:-right-2 after:bg-opacity-50 after:dark:bg-white after:bg-gray-700'>{dateNum}</p>
         <p>{category}</p>

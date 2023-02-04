@@ -85,7 +85,7 @@ const Month_Overview = props => {
           rotation:0.625
         })}
         value={props.isActiveMonth ? expenseOutOfTotal : 100}>
-          <h3 className='text-5xl text-green-500 hover:text-5xl transition-all'>{props.currency}{props.isActiveMonth ? leftToSpend : totalExpenses} </h3>
+          <h3 className='text-5xl text-green-500 hover:text-5xl transition-all'>{props.currency}{props.isActiveMonth ? leftToSpend.toFixed(1) : totalExpenses} </h3>
           <p className='opacity-70 text-s mt-2'>{props.isActiveMonth ? 'Spare to spend' : `Expenses of ${props.datePath}`}</p>
         </CircularProgressbarWithChildren>
            </div>
@@ -95,7 +95,7 @@ const Month_Overview = props => {
 
             
 
-        <ul ref={listRef} className='flex animate-entrance   scroll-smooth flex-col mt-1 gap-2 px-4 overflow-y-auto pt-1'>
+        <ul ref={listRef} className='flex animate-entrance   scroll-smooth flex-col mt-1 gap-1 px-4 overflow-y-auto pt-1'>
             {resultListRender}
         </ul>
 

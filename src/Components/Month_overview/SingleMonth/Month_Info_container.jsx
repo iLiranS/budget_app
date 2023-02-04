@@ -10,7 +10,8 @@ const Month_Info_container = props => {
     const listRef = useRef();
 
     const checkScroll = e =>{
-        const list = e.target;
+      const list = e.target;
+      if (e.target !== listRef.current) return;
         const width = list.offsetWidth;
         if (list.scrollLeft > width/2) setCurrentPage(1);
         else setCurrentPage(0);
@@ -33,9 +34,9 @@ const Month_Info_container = props => {
    <Month_Graph currency={props.currency} page={currentPage} actions={currentMonthActions}/>
    </ul>
 
-   <section className='flex gap-4  w-full justify-center h-max mb-2 relative'>
-    <div onClick={()=>{setScroll(0)}} className={`h-4 cursor-pointer w-4 border-[1px] border-gray-700 rounded-full ${currentPage===0 ? 'bg-gray-700' : 'bg-transparent'}`}></div>
-    <div onClick={()=>{setScroll(1)}} className={`h-4 cursor-pointer w-4 border-[1px] border-gray-700 rounded-full ${currentPage===1 ? 'bg-gray-700' : 'bg-transparent'}`}></div>
+   <section className='flex gap-4  w-full justify-center h-max mb-4 relative'>
+    <div onClick={()=>{setScroll(0)}} className={`h-4 cursor-pointer w-4 border-[2px] box-content border-gray-700 rounded-full ${currentPage===0 ? 'bg-gray-400' : 'bg-transparent'}`}></div>
+    <div onClick={()=>{setScroll(1)}} className={`h-4 cursor-pointer w-4 border-[2px] box-content border-gray-700 rounded-full ${currentPage===1 ? 'bg-gray-400' : 'bg-transparent'}`}></div>
   
     {isActiveMonth &&
     <section onClick={addAction} className='absolute bottom-full bg-gray-700  rounded-full dark:bg-white cursor-pointer hover:scale-105 transition-all text-4xl  left-1/2 -translate-x-1/2'>

@@ -14,3 +14,8 @@
 ###### Commit 12 updates :
 > History months list reversed so latest month is first.
 > option to edit / delete actions from previous months , Can't add on purpose.
+
+##### Commit 13 Updates : 
+> Monthly graph percetnage fix.
+> Prevent user from entering negative amount.
+> Some UI changes.

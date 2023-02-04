@@ -47,6 +47,7 @@ const AddPage = props => {
       //amount
       if (!options.amount) { setError('Please enter amount !'); return false;}
       if (options.amount > 9999999) {setError(`that's too much money !`); return false;}
+      if (options.amount < 1) {setError('Amount must be greater than 0'); return false;}
       // category
       if (options.category.length < 1) {setError('Please enter category !'); return false;}
       if (options.category.length > 30) { setError('Category length is too long !');return false;}
@@ -111,7 +112,7 @@ const AddPage = props => {
             <section className='flex items-center justify-between'>
               <p>Amount <span  style={{color:accentColor}}> ({props.currency})</span></p>
               <section className='flex gap-1'>
-              <input step='any'  placeholder='1 - ∞' className='bg-opacity-10 bg-white rounded-md outline-none w-20 text-center' min={1} onChange={setAmount} value={options.amount ?? ''} type='number' />
+              <input step='any'  placeholder='1 - ∞' className='bg-opacity-10 bg-white rounded-md outline-none w-20 text-center'  onChange={setAmount} value={options.amount ?? ''} type='number'></input>     
               </section>
             </section>
 
